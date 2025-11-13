@@ -29,7 +29,7 @@ export const GET = auth(async (req: NextRequest) => {
   const movies = await fetchWatchLaters(page, email);
 
   return NextResponse.json({
-    movies,
+    watchLater: movies,
     totalPages: 1
    });
 });

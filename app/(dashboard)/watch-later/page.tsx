@@ -8,7 +8,7 @@ export default function WatchLaterPage() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  // ⭐ Load watch-later movies
+  // Load watch-later movies
   useEffect(() => {
     async function fetchWatchLater() {
       try {
@@ -24,7 +24,7 @@ export default function WatchLaterPage() {
     fetchWatchLater();
   }, [page]);
 
-  // ⭐ Toggle Favorite
+  // Toggle Favorite
   const toggleFavorite = async (id: string, isFavorited: boolean) => {
     await fetch(`/api/favorites/${id}`, {
       method: isFavorited ? "DELETE" : "POST",
@@ -38,7 +38,7 @@ export default function WatchLaterPage() {
     );
   };
 
-  // ⭐ Toggle Watch Later
+  // Toggle Watch Later
   const toggleWatchLater = async (id: string, isWatchLater: boolean) => {
     await fetch(`/api/watch-later/${id}`, {
       method: isWatchLater ? "DELETE" : "POST",
