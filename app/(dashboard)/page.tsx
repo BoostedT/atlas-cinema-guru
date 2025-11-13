@@ -142,7 +142,8 @@ export default function DashboardPage() {
       {loading ? (
         <p className="text-gray-400">Loading...</p>
       ) : (
-        <div className="w-9/12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20 justify-start ">
+        <div className="w-full max-w-[900px] mx-auto mt-10 
+                grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-20">
           {titles.map((movie) => (
             <div
               key={movie.id}
