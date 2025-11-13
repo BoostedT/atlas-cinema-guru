@@ -89,7 +89,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Min/Max Year */}
-        <div className="flex gap-4 w-full">
+        <div className="flex gap-6 w-fill max-w-[600px]">
           <div className="flex-1">
             <label className="block mb-2 text-sm text-gray-300">Min Year</label>
             <input
@@ -200,24 +200,6 @@ export default function DashboardPage() {
           </button>
         </div>
       </div>
-
-      {/* ACTIVITY FEED */}
-      <div className="mt-10 bg-[#17b496] mx-auto p-4 rounded-lg w-[300px]">
-        <h2 className="font-semibold text-[#0A0D3A] mb-3 text-center">
-          Latest Activities
-        </h2>
-        <ul className="space-y-2 text-sm text-[#0A0D3A]">
-          <li>
-            <span className="block text-xs opacity-80">10/2/2024, 5:11 PM</span>
-            Added <strong>Before the Dawn</strong> to watch later
-          </li>
-          <li>
-            <span className="block text-xs opacity-80">10/1/2024, 4:00 PM</span>
-            Favorited <strong>Beneath the Surface</strong>
-          </li>
-        </ul>
-      </div>
-
     </div>
   );
 }
