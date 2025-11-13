@@ -111,9 +111,9 @@ export default function DashboardPage() {
         </div>
 
         {/* Genres */}
-        <div className="flex-1">
-          <label className="block mb-2 text-sm text-gray-300">Genres</label>
-          <div className="flex flex-wrap gap-2">
+        <div className="flex flex-col ml-auto max-w-[300px]">
+          <label className="block mb-2 text-sm text-gray-300 text-right">Genres</label>
+          <div className="flex flex-wrap gap-2 justify-end">
             {allGenres.map((genre) => (
               <button
                 key={genre}
