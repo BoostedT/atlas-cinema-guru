@@ -88,7 +88,7 @@ export async function fetchFavorites(page: number, userEmail: string) {
       ...row,
       favorited: true,
       watchLater: watchLater.includes(row.id),
-      image: `/images/${row.id}.webp`,
+      image: `/images/${row.image}`,
     }));
   } catch (error) {
     console.error("Database Error:", error);
@@ -166,7 +166,7 @@ export async function fetchWatchLaters(page: number, userEmail: string) {
       ...row,
       favorited: favorites.includes(row.id),
       watchLater: true,
-      image: `/images/${row.id}.webp`,
+      image: `/images/${row.image}`,
     }));
   } catch (error) {
     console.error("Database Error:", error);
