@@ -53,7 +53,7 @@ export async function fetchTitles(
       ...row,
       favorited: favorites.includes(row.id),
       watchLater: watchLater.includes(row.id),
-      image: `/images/${row.id}.webp`,
+      image: `/images/${row.image}`,
     }));
   } catch (error) {
     console.error("Database Error:", error);
