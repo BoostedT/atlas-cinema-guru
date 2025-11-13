@@ -72,7 +72,7 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-10 bg-[#00003C] p-10 min-h-screen">
       {/* FILTERS */}
-      <div className="flex flex-col w-full gap-6 ,ax-w-[600px]">
+      <div className="flex flex-col w-full gap-6 max-w-[600px]">
         {/* Search */}
         <div className="flex-1 min-w-[250px]">
           <label className="block mb-2 text-sm text-gray-300">Search</label>
