@@ -25,11 +25,11 @@ export const GET = auth(async (req: NextRequest) => {
     ? Number(params.get("maxYear"))
     : new Date().getFullYear();
   const query = params.get("query") ?? "";
-  const genres = params.get("genres")?.split(",") ?? (await fetchGenres());
+  const genres =
+    params.get("genres")?.split(",").filter(Boolean) ||
+    (await fetchGenres());
 
-  const title = await fetchTitles(page, minYear, maxYear, query, genres, email);
+  const titles = await fetchTitles(page, minYear, maxYear, query, genres, email);
 
-  return NextResponse.json({
-    title: title,
-  });
+  return NextResponse.json(titles);
 });

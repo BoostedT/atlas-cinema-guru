@@ -6,22 +6,14 @@ import { auth } from "@/auth";
  * GET /api/favorites
  */
 export const GET = auth(async (req: NextRequest) => {
-  const params = req.nextUrl.searchParams;
-  const page = params.get("page") ? Number(params.get("page")) : 1;
+  const page = Number(req.nextUrl.searchParams.get("page") || 1);
 
-  //@ts-ignore
-  if (!req.auth) {
-    return NextResponse.json(
-      { error: "Unauthorized - Not logged in" },
-      { status: 401 }
-    );
-  }
+  if (!req.auth)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
-  const {
-    user: { email }, //@ts-ignore
-  } = req.auth;
+  const { email } = req.auth.user;
 
-  const favorites = await fetchFavorites(page, email);
+  const movies = await fetchFavorites(page, email);
 
-  return NextResponse.json({ favorites });
+  return NextResponse.json({ movies });
 });

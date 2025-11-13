@@ -32,18 +32,22 @@ export async function fetchTitles(
         .execute()
     ).map((row) => row.title_id);
 
-    //Fetch titles
-    const titles = await db
+    let queryBuilder = db
       .selectFrom("titles")
       .selectAll("titles")
       .where("titles.released", ">=", minYear)
       .where("titles.released", "<=", maxYear)
       .where("titles.title", "ilike", `%${query}%`)
-      .where("titles.genre", "in", genres)
       .orderBy("titles.title", "asc")
       .limit(6)
-      .offset((page - 1) * 6)
-      .execute();
+      .offset((page - 1) * 6);
+
+    if (genres && genres.length > 0) {
+      queryBuilder = queryBuilder.where("titles.genre", "in", genres);
+    }
+
+    // Execute query
+    const titles = await queryBuilder.execute();
 
     return titles.map((row) => ({
       ...row,
@@ -53,7 +57,7 @@ export async function fetchTitles(
     }));
   } catch (error) {
     console.error("Database Error:", error);
-    throw new Error("Failed to fetch topics.");
+    throw new Error("Failed to fetch titles.");
   }
 }
 

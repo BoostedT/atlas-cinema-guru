@@ -26,7 +26,10 @@ export const GET = auth(async (req: NextRequest) => {
     user: { email }, //@ts-ignore
   } = req.auth;
 
-  const watchLater = await fetchWatchLaters(page, email);
+  const movies = await fetchWatchLaters(page, email);
 
-  return NextResponse.json({ watchLater });
+  return NextResponse.json({
+    movies,
+    totalPages: 1
+   });
 });
