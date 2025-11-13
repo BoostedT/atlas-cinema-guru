@@ -70,7 +70,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="flex flex-col gap-10 bg-[#00003C] p-10 min-h-screen">
+    <div className="flex flex-col gap-6 bg-[#00003C] p-10 min-h-screen">
       {/* FILTERS */}
       <div className="flex flex-col w-full gap-6 max-w-[600px]">
         {/* Search */}
@@ -89,7 +89,7 @@ export default function DashboardPage() {
         </div>
 
         {/* Min/Max Year */}
-        <div className="flex gap-6 w-fill max-w-[600px]">
+        <div className="flex gap-4 w-fill max-w-[600px]">
           <div className="flex-1">
             <label className="block mb-2 text-sm text-gray-300">Min Year</label>
             <input
