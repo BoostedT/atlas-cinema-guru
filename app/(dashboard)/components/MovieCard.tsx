@@ -29,11 +29,13 @@ export default function MovieCard({
     >
       {/* Poster */}
       <img
-        src={movie.image}
+        src={
+          movie.image.startsWith("/images/")
+            ? movie.image
+            : `/images/${movie.image.replace(/^.*[\\/]/, "")}`
+        }
         alt={movie.title}
-        className="w-full h-auto object-cover group-hover:brightness-50 transition-all duration-300"
       />
-
       {/* Buttons */}
       <div className="absolute top-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         {/* Favorite */}
